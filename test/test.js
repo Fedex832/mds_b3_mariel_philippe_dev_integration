@@ -39,3 +39,13 @@ it("should return all colors", done => {
     })
 })
 
+it("should return Bad Request", done => {
+  chai.request(app)
+    .get('/invalid')
+    .end((err, res) => {
+      if (err) done(err)
+      expect(res).to.have.status(404)
+      done()
+    })
+})
+
